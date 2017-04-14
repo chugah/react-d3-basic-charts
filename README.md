@@ -23,4 +23,4 @@ In the browser, open the following URL:
  
  `localhost:5000/example`
 
-More information about these charts can be obtained at the<a href="http://www.reactd3.org/docs/basic/#introduction">React D3</a> organization.
+More information about these charts can be obtained at the <a href="http://www.reactd3.org/docs/basic/#introduction">React D3</a> organization.
