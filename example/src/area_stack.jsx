@@ -1,7 +1,7 @@
 "use strict";
 
 import React, {Component} from 'react';
-import {AreaStackChart} from '../../src';
+import {AreaStackChart} from 'react-d3-basic';
 
 var generalChartData = require('dsv?delimiter=\t!./data/browser.tsv');
 var formatPercent = d3.format(".0%");

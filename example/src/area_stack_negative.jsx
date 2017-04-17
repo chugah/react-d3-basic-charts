@@ -1,7 +1,7 @@
 "use strict";
 
 import React, {Component} from 'react';
-import {AreaStackChart} from '../../src';
+import {AreaStackChart} from 'react-d3-basic';
 
 var generalChartData = require('dsv?delimiter=,!./data/stack_test.csv');
 

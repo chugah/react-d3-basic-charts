@@ -1,7 +1,7 @@
 "use strict";
 
 import React, {Component} from 'react';
-import {BarGroupChart} from '../../src';
+import {BarGroupChart} from 'react-d3-basic';
 
 var generalChartData = require('dsv?delimiter=,!./data/age.csv');
 
@@ -18,7 +18,7 @@ var chartSeries = [
       field: '14 to 17 Years',
       name: '14 to 17 Years',
       style: {
-        "fill-opacity": .4
+        "fillOpacity": .4
       }
     },
     {

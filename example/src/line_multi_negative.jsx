@@ -34,42 +34,45 @@ var chartSeries = [
       return +d;
     };
 
-module.exports  = React.createClass({
-    getInitialState: function() {
-      return {
-        width: 1200,
-        height: 400,
-        series: chartSeries
-      }
-    },
-    onClick: function() {
-      this.setState({
-        width: this.state.width === 600? 400: 600,
-        height: this.state.width === 600? 600: 400,
-        series: this.state.width === 600? [{
-          field: 'Austin',
-          name: 'Austin Temp',
-          color: '#7777ff',
-          area: true
-        }]: chartSeries
-      })
-    },
-    render: function() {
-      return (
-        <div>
-          <button onClick={this.onClick}>toggle</button>
-            <LineChart
+export default class LineMultiNegativeSample extends Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.state = {
+      width: 1200,
+      height: 400,
+      series: chartSeries,
+      active: true
+    };
+  }
+  onClick() {
+    this.setState({
+      width: this.state.width === 600? 400: 600,
+      height: this.state.width === 600? 600: 400,
+      series: this.state.width === 600? [{
+        field: 'Austin',
+        name: 'Austin Temp',
+        color: '#7777ff',
+        area: true
+      }]: chartSeries
+    })
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.onClick}>toggle</button>
+          <LineChart
               width= {1200}
               height= {this.state.height}
               data= {generalChartData}
               chartSeries= {this.state.series}
               x= {x}
               xScale= {xScale}
-            />
-        </div>
-      )
-    }
-})
+          />
+      </div>
+    )
+  }
+}
 
  
 

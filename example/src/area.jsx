@@ -1,7 +1,7 @@
 "use strict";
 
 import React, {Component} from 'react';
-import {AreaChart} from '../../src';
+import {AreaChart} from 'react-d3-basic';
 
 var data = require('dsv?delimiter=\t!./data/stock.tsv');
 var data2 = require('dsv?delimiter=\t!./data/stock2.tsv');

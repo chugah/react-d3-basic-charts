@@ -4,7 +4,6 @@ import React, {Component} from 'react';
 import {Chart} from 'react-d3-core';
 import {ChartPie} from 'react-d3-shape';
 import {PieChart} from 'react-d3-basic';
-// import PieChart from '../../src/pie';
 
 var generalChartData = require('dsv?delimiter=,!./data/age_pie.csv')
 
@@ -47,38 +46,41 @@ var value = function(d) {
         "name": "45 to 64"
       }
     ],
-    innerRadius = 30;
+    innerRadius = 50;
 
-module.exports = React.createClass({
-    getInitialState: function() {
-      return {
-        width: 600,
-        height: 400,
-        series: chartSeries
-      }
-    },
-    onClick: function() {
-      this.setState({
-        width: this.state.width === 600? 400: 600,
-        height: this.state.width === 600? 600: 400,
-        series: this.state.width === 600? [{
+export default class DonutChartSample extends Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.state = {
+      width: 600,
+      height: 400,
+      series: chartSeries,
+      active: true
+    };
+  }
+  onClick() {
+    this.setState({
+      width: this.state.width === 600? 400: 600,
+      height: this.state.width === 600? 600: 400,
+      series: this.state.width === 600? [{
           "field": "<5",
           "name": "less than 5",
           "color": "red",
           "style": {
             "fillOpacity": .2
           }
-        },
-        {
+      },
+      {
           "field": "5-13",
           "name": "5 to 13",
           style: {
             "fillOpacity": .5
           }
-        }]: chartSeries
-      })
-    },
-    render: function() {
+      }]: chartSeries
+    })
+  }
+  render() {
       return (
         <div>
           <button onClick={this.onClick}>toggle</button>
@@ -94,4 +96,4 @@ module.exports = React.createClass({
         </div>
       )
     }
-})
+}

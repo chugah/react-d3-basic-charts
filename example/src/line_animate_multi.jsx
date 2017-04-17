@@ -64,11 +64,11 @@ var width = 960,
     xLabelPosition = 'bottom',
     yLabelPosition = 'left';
 
-module.exports = React.createClass({ 
-    getInitialState: function() {
-      return this.props;
-    },
-    componentDidMount: function() {
+export default class LineAnimateMultiSample extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
       var title = this.props.title;
       var i = 0;
 
@@ -100,7 +100,7 @@ module.exports = React.createClass({
           ]
 
           var yDomain = [0, 100]
-        }else {
+        } else {
           var chartSeries = [
             {
               field: 'New York',
@@ -114,15 +114,15 @@ module.exports = React.createClass({
 
         that._updateState(title_new, chartSeries, yDomain)
       }, 2000)
-    },
-    _updateState: function(title, chartSeries, yDomain) {
+    }
+    _updateState(title, chartSeries, yDomain) {
       this.setState({
         title: title,
         chartSeries: chartSeries,
         yDomain: yDomain
       })
-    },
-    render: function() {
+    }
+    render() {
       return (
         <div>
           <LineChart
@@ -167,5 +167,5 @@ module.exports = React.createClass({
         </div>
       )
     }
-})
+}
 

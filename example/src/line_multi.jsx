@@ -31,15 +31,18 @@ var chartSeries = [
   xScale = 'time';
   chartSeries.reverse();
 
-module.exports = React.createClass({
-    getInitialState: function() {
-      return {
-        width: 800,
-        height: 400,
-        series: chartSeries
-      }
-    },
-    onClick: function() {
+export default class LineMultiSample extends Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.state = {
+      width: 800,
+      height: 400,
+      series: chartSeries,
+      active: true
+    };
+  }
+  onClick() {
       this.setState({
         width: this.state.width === 600? 400: 600,
         height: this.state.width === 600? 600: 400,
@@ -50,8 +53,8 @@ module.exports = React.createClass({
           area: true
         }]: chartSeries
       })
-    },
-    render: function() {
+    }
+    render() {
       return (
         <div>
           <button onClick={this.onClick}>toggle</button>
@@ -66,4 +69,4 @@ module.exports = React.createClass({
         </div>
       )
     }
-})
+}

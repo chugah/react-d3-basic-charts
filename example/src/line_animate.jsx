@@ -53,21 +53,19 @@ var width = 960,
     xLabelPosition = 'bottom',
     yLabelPosition = 'left';
 
+export default class LineAnimateSample extends Component {
+  constructor(props) {
+    super(props);
+  }
+  componentDidMount() {
+    var title = this.props.title;
+    var i = 0;
 
- module.exports = React.createClass({ 
-    getInitialState: function() {
-      return this.props;
-    },
-    componentDidMount: function() {
-      var title = this.props.title;
-      var i = 0;
+    var d = this.props.data;
+    var that = this;
 
-      var d = this.props.data;
-      var that = this;
-
-      window.setInterval(function() {
-
-        var title_new = title + ' => ' + i + ' times';
+    window.setInterval(function() {
+      var title_new = title + ' => ' + i + ' times';
         i++;
 
         if(i % 2 == 1) {
@@ -90,7 +88,7 @@ var width = 960,
           ]
 
           var yDomain = [0, 100]
-        }else {
+        } else {
           var chartSeries = [
             {
               field: 'New York',
@@ -104,15 +102,15 @@ var width = 960,
 
         that._updateState(title_new, chartSeries, yDomain)
       }, 2000)
-    },
-    _updateState: function(title, chartSeries, yDomain) {
+    }
+    _updateState(title, chartSeries, yDomain) {
       this.setState({
         title: title,
         chartSeries: chartSeries,
         yDomain: yDomain
       })
-    },
-    render: function() {
+    }
+    render() {
       return (
         <div>
           <LineChart
@@ -157,5 +155,5 @@ var width = 960,
         </div>
       )
     }
-})
+}
 

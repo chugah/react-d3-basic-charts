@@ -1,7 +1,7 @@
 "use strict";
 
 import React, {Component} from 'react';
-import BarStackChart from '../../src/bar_stack';
+import {BarStackChart} from 'react-d3-basic';
 
 var generalChartData = require('dsv?delimiter=,!./data/age.csv');
 

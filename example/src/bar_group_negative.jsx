@@ -1,9 +1,9 @@
 "use strict";
 
 import React, {Component} from 'react';
-import {BarGroupChart} from 'react-d3-basic';
+import {BarGroupHorizontalChart} from 'react-d3-basic';
 
-var generalChartData = require('dsv?delimiter=,!./data/fake_num.csv');
+var generalChartData = require('dsv?delimiter=,!./data/fake_num_two.csv');
 
 var chartSeries = [
     {
@@ -57,14 +57,16 @@ var chartSeries = [
     },
 
   ],
-  x = function(d) {
+  y = function(d) {
     return d.State;
   },
-  xScale = 'ordinal',
-  // y = function(d) {
-  //   return +d;
-  // },
-  yTickFormat = d3.format(".2s");
+  yDomain = generalChartData.map(function(d) { return d.State; }),
+  yRangeRoundBands = {interval: [0, 840], padding: .1},
+  yScale = 'ordinal',
+  x = function(d) {
+    return +d;
+  },
+  xTickFormat = d3.format(".2s");
 
 export default class BarGroupHorizontalNegative extends Component {
   constructor(props) {
@@ -110,17 +112,17 @@ export default class BarGroupHorizontalNegative extends Component {
     return (
       <div>
         <button onClick={this.onClick}>toggle</button>
-          <BarGroupChart
-            data= {generalChartData}
-            width= {this.state.width}
-            height= {this.state.height} 
-            chartSeries = {chartSeries}
-            x= {x}
-            xScale= {xScale}
-            y= {y}
-            yTickFormat= {yTickFormat}
-          />
-        </Chart>
+        <BarGroupHorizontalChart
+          width= {this.state.width}
+          height= {this.state.height}
+          data= {generalChartData}
+          chartSeries = {this.state.series}
+          y= {y}
+          yDomain= {yDomain}
+          yScale= {yScale}
+          x= {x}
+          xTickFormat= {xTickFormat}
+        />
       </div>
     )
   }

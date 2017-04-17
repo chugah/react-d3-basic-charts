@@ -40,16 +40,19 @@ var chartSeries = [
       return +d;
     };
 
-module.exports = React.createClass({
-    getInitialState: function() {
-      return {
-        width: 800,
-        height: 400,
-        series: chartSeries
-      }
-    },
-    onClick: function() {
-      this.setState({
+export default class ScatterChartSample extends Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.state = {
+      width: 800,
+      height: 400,
+      series: chartSeries,
+      active: true
+    };
+  }
+  onClick() {
+    this.setState({
         width: this.state.width === 600? 400: 600,
         height: this.state.width === 600? 600: 400,
         series: this.state.width === 600? [{
@@ -60,9 +63,9 @@ module.exports = React.createClass({
           symbolSize: 2
         }]: chartSeries
       })
-    },
-    render: function() {
-      return (
+  }
+  render() {
+    return (
         <div>
           <button onClick={this.onClick}>toggle</button>
           <ScatterPlot
@@ -75,8 +78,8 @@ module.exports = React.createClass({
             xScale= {xScale}
           />
         </div>
-      )
-    }
-})
+    )
+  }
+}
 
 

@@ -2,7 +2,7 @@
 
 import React, {Component} from 'react';
 import {Chart} from 'react-d3-core';
-import PieChart from '../../src/pie';
+import {PieChart} from 'react-d3-basic';
 
 var generalChartData = require('dsv?delimiter=,!./data/age_pie.csv')
 
@@ -42,8 +42,8 @@ var value = function(d) {
       }
     ];
 
-module.exports = React.createClass({
-  render: function() {
+export default class PieChartSample extends Component {
+  render() {
     return (
         <div>
             <PieChart
@@ -53,6 +53,6 @@ module.exports = React.createClass({
               name = {name}
             />
         </div>
-      )
+    )
   }
-})
+}

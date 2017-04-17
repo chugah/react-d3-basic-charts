@@ -50,7 +50,6 @@ var chartSeries = [
   },
   xTickFormat = d3.format(".2s");
 
-
 export default class BarGroupHorizontal extends Component {
   constructor(props) {
     super(props);
