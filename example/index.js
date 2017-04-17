@@ -13,7 +13,7 @@ import AreaStackNegative from './src/area_stack_negative';
 import Bar from './src/bar';
 import BarGroup from './src/bar_group';
 import BarGroupHorizontal from './src/bar_group_horizontal';
-import BarGroupNegative from './src/bar_group_horizontal';
+import BarGroupNegative from './src/bar_group_negative';
 import BarHorizontal from './src/bar_horizontal';
 import BarNegative from './src/bar_negative';
 import BarStack from './src/bar_stack';

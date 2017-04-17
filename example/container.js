@@ -32,7 +32,7 @@ export default class ContainerExample extends Component {
 	          <NavItem eventKey="bar_horizontal" href="/example/bar_horizontal">Bar Horizontal</NavItem>
 	          <NavItem eventKey="bar_group" href="/example/bar_group">Bar Group</NavItem>
 	          <NavItem eventKey="bar_group_horizontal" href="/example/bar_group_horizontal">Bar Group Horizontal</NavItem>
-	          <NavItem eventKey="bar_group_negative" href="/example/bar_group_negative">Bar Group with Negative</NavItem>  
+	          <NavItem eventKey="bar_group_negative" href="/example/bar_group_negative">Bar Group Horizontal with Negative</NavItem>  
 	          <NavItem eventKey="bar_stack" href="/example/bar_stack">Bar Stack</NavItem>
 	          <NavItem eventKey="bar_stack_horizontal" href="/example/bar_stack_horizontal">Bar Stack Horizontal</NavItem>
 	          <NavItem eventKey="bar_stack_negative" href="/example/bar_stack_negative">Bar Stack with Negative</NavItem>

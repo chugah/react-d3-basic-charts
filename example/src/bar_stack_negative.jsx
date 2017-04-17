@@ -85,21 +85,21 @@ export default class BarStackNegativeSample extends Component {
             field: 'num5',
             name: 'num5',
             style: {
-              "fill-opacity": .8
+              "fillOpacity": .8
             }
           },
           {
             field: 'num6',
             name: 'num6',
             style: {
-              "fill-opacity": .8
+              "fillOpacity": .8
             }
           },
           {
             field: 'num7',
             name: 'num7',
             style: {
-              "fill-opacity": .8
+              "fillOpacity": .8
             }
           }
         ]: chartSeries
