@@ -48,15 +48,18 @@ var chartSeries = [
   },
   yTickFormat = d3.format(".2s");
 
-module.exports =  React.createClass({
-  getInitialState: function() {
-    return {
+export default class BarStack extends Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.state = {
       width: 600,
       height: 500,
-      series: chartSeries
-    }
-  },
-  onClick: function() {
+      series: chartSeries,
+      active: true
+    };
+  }
+  onClick() {
     this.setState({
       width: this.state.width === 600? 500: 600,
       height: this.state.width === 600? 600: 500,
@@ -82,9 +85,8 @@ module.exports =  React.createClass({
           }
         ]: chartSeries
     })
-  },
-  render: function() {
-
+  }
+  render() {
     return (
       <div>
         <button onClick={this.onClick}>toggle</button>
@@ -101,4 +103,4 @@ module.exports =  React.createClass({
       </div>
     )
   }
-})
+}

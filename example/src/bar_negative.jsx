@@ -24,7 +24,6 @@ var chartSeries = [
   yTicks = [10, "%"];
 
 export default class BarChartSample extends Component {
-
   render() {
     return(
       <BarChart

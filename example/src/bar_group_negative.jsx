@@ -61,21 +61,23 @@ var chartSeries = [
     return d.State;
   },
   xScale = 'ordinal',
-  y = function(d) {
-    return +d;
-  },
+  // y = function(d) {
+  //   return +d;
+  // },
   yTickFormat = d3.format(".2s");
 
-
-module.exports = React.createClass({
-  getInitialState: function() {
-    return {
+export default class BarGroupHorizontalNegative extends Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.state = {
       width: 600,
       height: 500,
-      series: chartSeries
-    }
-  },
-  onClick: function() {
+      series: chartSeries,
+      active: true
+    };
+  }
+  onClick() {
     this.setState({
       width: this.state.width === 600? 500: 600,
       height: this.state.width === 600? 600: 500,
@@ -84,41 +86,35 @@ module.exports = React.createClass({
             field: 'num5',
             name: 'num5',
             style: {
-              "fill-opacity": .8
+              "fillOpacity": .8
             }
           },
           {
             field: 'num6',
             name: 'num6',
             style: {
-              "fill-opacity": .8
+              "fillOpacity": .8
             }
           },
           {
             field: 'num7',
             name: 'num7',
             style: {
-              "fill-opacity": .8
+              "fillOpacity": .8
             }
           }
         ]: chartSeries
     })
-  },
-  render: function() {
-
+  }
+  render() {
     return (
       <div>
         <button onClick={this.onClick}>toggle</button>
-        <Chart
-          width= {this.state.width}
-          height= {this.state.height}
-          chartSeries = {this.state.series}
-          >
           <BarGroupChart
-            width= {this.state.width}
-            height= {this.state.height}
             data= {generalChartData}
-            chartSeries = {this.state.series}
+            width= {this.state.width}
+            height= {this.state.height} 
+            chartSeries = {chartSeries}
             x= {x}
             xScale= {xScale}
             y= {y}
@@ -128,4 +124,4 @@ module.exports = React.createClass({
       </div>
     )
   }
-})
+}

@@ -30,9 +30,7 @@ var chartSeries = [
 export default class AreaChartSample extends Component {
   constructor(props) {
     super(props)
-
-    this.toggle = this.toggle.bind(this)
-
+    this.toggle = this.toggle.bind(this);
     this.state = {
       active: true
     }

@@ -1,7 +1,7 @@
 "use strict";
 
 import React, {Component} from 'react';
-import BarGroupHorizontalChart from '../../src/bar_group_horizontal';
+import {BarGroupHorizontalChart} from 'react-d3-basic';
 
 var generalChartData = require('dsv?delimiter=,!./data/age.csv')
 
@@ -18,7 +18,7 @@ var chartSeries = [
       field: '14 to 17 Years',
       name: '14 to 17 Years',
       style: {
-        "fill-opacity": .4
+        "fillOpacity": .4
       }
     },
     {
@@ -50,15 +50,19 @@ var chartSeries = [
   },
   xTickFormat = d3.format(".2s");
 
-module.exports = React.createClass({
-  getInitialState: function() {
-    return {
+
+export default class BarGroupHorizontal extends Component {
+  constructor(props) {
+    super(props);
+    this.onClick = this.onClick.bind(this);
+    this.state = {
       width: 600,
       height: 500,
-      series: chartSeries
-    }
-  },
-  onClick: function() {
+      series: chartSeries,
+      active: true
+    };
+  }
+  onClick() {
     this.setState({
       width: this.state.width === 600? 500: 600,
       height: this.state.width === 600? 600: 500,
@@ -79,14 +83,13 @@ module.exports = React.createClass({
             field: '25 to 44 Years',
             name: '25 to 44 Years',
             style: {
-              "fill-opacity": .4
+              "fillOpacity": .4
             }
           }
         ]: chartSeries
     })
-  },
-  render: function() {
-
+  }
+  render() {
     return (
       <div>
         <button onClick={this.onClick}>toggle</button>
@@ -104,5 +107,5 @@ module.exports = React.createClass({
       </div>
     )
   }
-})
+}
 
